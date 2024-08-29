@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial: try...catch en JavaScript</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <h1>try...catch en JavaScript</h1>
-    
-    <p>La estructura try...catch en JavaScript es una herramienta poderosa para manejar errores y excepciones en tu código. Te permite "intentar" ejecutar un bloque de código y "atrapar" cualquier error que pueda ocurrir durante la ejecución.</p>
-    
+    <p>La estructura try...catch en JavaScript es una herramienta poderosa para manejar errores y excepciones en tu
+        código. Te permite "intentar" ejecutar un bloque de código y "atrapar" cualquier error que pueda ocurrir durante
+        la ejecución.</p>
     <h2>Sintaxis Básica</h2>
     <code>
-try {
-    // Código que puede causar un error
-} catch (error) {
-    // Código para manejar el error
-}
+        try {
+            // Código que puede causar un error
+        } catch (error) {
+            // Código para manejar el error
+        }
     </code>
-    
     <h2>Cómo Funciona</h2>
     <ol>
         <li>El código dentro del bloque <code>try</code> se ejecuta normalmente.</li>
-        <li>Si ocurre un error en el bloque <code>try</code>, la ejecución se mueve inmediatamente al bloque <code>catch</code>.</li>
+        <li>Si ocurre un error en el bloque <code>try</code>, la ejecución se mueve inmediatamente al bloque
+            <code>catch</code>.</li>
         <li>El objeto <code>error</code> contiene información sobre el error ocurrido.</li>
-        <li>Después de ejecutar el bloque <code>catch</code>, el programa continúa con la siguiente instrucción después del bloque try...catch.</li>
+        <li>Después de ejecutar el bloque <code>catch</code>, el programa continúa con la siguiente instrucción después
+            del bloque try...catch.</li>
     </ol>
-
     <h2>Ejemplo Práctico</h2>
     <div class="ejemplo">
         <code>
-function dividir(a, b) {
-    try {
-        if (b === 0) {
-            throw new Error("No se puede dividir por cero");
-        }
-        return a / b;
-    } catch (error) {
-        console.error("Se produjo un error:", error.message);
-        return null;
-    }
-}
+            function dividir(a, b) {
+                try {
+                    if (b === 0) {
+                        throw new Error("No se puede dividir por cero");
+                    }
+                    return a / b;
+                } catch (error) {
+                    console.error("Se produjo un error:", error.message);
+                    return null;
+                }
+            }
 
-console.log(dividir(10, 2));  // Imprime: 5
-console.log(dividir(10, 0));  // Imprime: Se produjo un error: No se puede dividir por cero
-                              //          null
+            console.log(dividir(10, 2));    // Imprime: 5
+            console.log(dividir(10, 0));    // Imprime: Se produjo un error: No se puede dividir por cero
+                                            // null
         </code>
     </div>
-
     <h2>Cuándo Utilizar try...catch</h2>
     <ul>
         <li>Cuando trabajas con código que puede lanzar excepciones (por ejemplo, operaciones de red o archivos).</li>
@@ -56,23 +57,22 @@ console.log(dividir(10, 0));  // Imprime: Se produjo un error: No se puede divid
         <li>Cuando quieres proporcionar retroalimentación específica al usuario sobre un error.</li>
         <li>Para implementar lógica de recuperación después de un error.</li>
     </ul>
-
     <h2>Bloque finally</h2>
-    <p>Puedes agregar un bloque <code>finally</code> que se ejecutará siempre, independientemente de si se produce un error o no.</p>
+    <p>Puedes agregar un bloque <code>finally</code> que se ejecutará siempre, independientemente de si se produce un
+        error o no.</p>
     <code>
-try {
-    // Código que puede causar un error
-} catch (error) {
-    // Manejo del error
-} finally {
-    // Código que se ejecuta siempre
-}
+        try {
+            // Código que puede causar un error
+        } catch (error) {
+            // Manejo del error
+        } finally {
+            // Código que se ejecuta siempre
+        }
     </code>
-
     <div class="nota">
-        <strong>Nota:</strong> Aunque try...catch es útil, no debes abusar de él. Es mejor prevenir errores con buenas prácticas de programación que depender excesivamente del manejo de excepciones.
+        <strong>Nota:</strong> Aunque try...catch es útil, no debes abusar de él. Es mejor prevenir errores con buenas
+        prácticas de programación que depender excesivamente del manejo de excepciones.
     </div>
-
     <h2>Tipos de Errores</h2>
     <p>JavaScript tiene varios tipos de errores predefinidos:</p>
     <ul>
@@ -82,19 +82,20 @@ try {
         <li>TypeError: Uso incorrecto de tipos (por ejemplo, tratar un número como una función).</li>
         <li>RangeError: Número fuera de rango (por ejemplo, en un array).</li>
     </ul>
-
     <div class="ejemplo">
         <code>
-try {
-    let x = y + 1; // y no está definida
-} catch (error) {
-    if (error instanceof ReferenceError) {
-        console.log("Se produjo un error de referencia");
-    } else {
-        console.log("Se produjo un error de otro tipo");
-    }
-}
+            try {
+                let x = y + 1; // y no está definida
+            } catch (error) {
+                if (error instanceof ReferenceError) {
+                    console.log("Se produjo un error de referencia");
+                } else {
+                    console.log("Se produjo un error de otro tipo");
+                }
+            }
         </code>
     </div>
+    <script src="js/ejercicios-try-catch-javascript.js"></script>
 </body>
+
 </html>
